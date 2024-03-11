@@ -69,10 +69,12 @@ app.get('/books/count/:property', async (req, res) => {
     getCountBy(req, res);
 });
 
+// It updates a book partially
 app.patch('/book/partial/:id', async (req, res) => {
     partialUpdate(req, res);
 });
 
+// It updates the total of a book
 app.put('/book/total/:id', async (req, res) => {
     totalUpdate(req, res);
 });
