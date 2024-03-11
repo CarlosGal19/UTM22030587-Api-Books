@@ -12,7 +12,9 @@ const {
     getBooksByYear,
     genreFullAvailability,
     genrePartialAvailability,
-    getCountBy
+    getCountBy,
+    partialUpdate,
+    totalUpdate
 } = require('./queries/book.queries.js');
 
 app.use(bodyParser.json());
@@ -65,6 +67,14 @@ app.get('/books/available/partial/:genre', async (req, res) => {
 // It returns a object with the name of a property that is being counted and the count of the property
 app.get('/books/count/:property', async (req, res) => {
     getCountBy(req, res);
+});
+
+app.patch('/book/partial/:id', async (req, res) => {
+    partialUpdate(req, res);
+});
+
+app.put('/book/total/:id', async (req, res) => {
+    totalUpdate(req, res);
 });
 
 app.listen(port, () => {
