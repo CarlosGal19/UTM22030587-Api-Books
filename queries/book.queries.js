@@ -152,7 +152,7 @@ const genrePartialAvailability = async (req, res) => {
             return res.status(400).json({ message: 'Endpoint not valid' });
         };
         const books = await Book.findAll({ where: { genre: genre } });
-        let available = books.some(book => { book.stock > 0 });
+        let available = books.some(book => book.dataValues.stock > 0 );
         return res.status(200).json(available);
     } catch (error) {
         return res.status(500).json({ message: error.message });
