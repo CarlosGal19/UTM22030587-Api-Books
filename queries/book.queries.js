@@ -254,7 +254,6 @@ const totalUpdate = async (req, res) => {
                 id: id
             }
         });
-        console.log(book)
         if (book === 0) {
             return res.status(404).json({ response: sendReponse(404, 'The book was not found') });
         }
